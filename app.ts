@@ -14,19 +14,18 @@ app.listen(port, () => {
 
 app.get("/shortener/url", (req, res) => {
   const fullUrl = map.get(req.body.shortUrl);
-  res.status(200).json({
-    fullUrl: fullUrl,
-  });
+  res.redirect(301, fullUrl);
 });
 
-app.get("/shortener/create", (req, res) => {
+app.put("/shortener/create", (req, res) => {
   const shortUrl = (Math.random() + 1).toString(36).substring(7);
   const fullUrl = req.body.fullUrl;
   try {
     map.set(shortUrl, fullUrl);
     res.status(200).json({
       message: "URL created successfully!",
-      url: { shortUrl: shortUrl, fullUrl: fullUrl },
+      shortUrl: shortUrl,
+      fullUrl: fullUrl,
     });
   } catch {
     res.status(400).json({
