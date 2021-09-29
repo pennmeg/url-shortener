@@ -2,19 +2,25 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/app.ts",
+  "types": "dist/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node index.ts",
+    "start": "ts-node app.d.ts",
     "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^16.10.1",
     "nodemon": "^2.0.13",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "hashmap": "^2.4.0"
   }
 }
